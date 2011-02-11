@@ -1,0 +1,1 @@
+<#include "/${parameters.templateDir}/${parameters.theme}/window/ItemWrapper_close.ftl" />

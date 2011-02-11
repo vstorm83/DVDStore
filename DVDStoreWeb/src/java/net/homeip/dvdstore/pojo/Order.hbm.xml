@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.Order" table="DSOrder">
+    <id column="OrderId" name="orderId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <many-to-one class="net.homeip.dvdstore.pojo.User" column="UserId" name="user"/>
+    <component class="net.homeip.dvdstore.pojo.web.vo.DeliveryInfo" name="deliveryInfo">
+      <property column="FirstName" name="firstName" type="string"/>
+      <property column="LastName" name="lastName" type="string"/>
+      <property column="Address" name="address" type="string"/>
+      <property column="Tel" name="tel" type="string"/>
+      <property column="Email" name="email" type="string"/>
+    </component>
+    <set name="orderItem" table="OrderItem">
+      <key column="orderId"/>
+      <composite-element class="net.homeip.dvdstore.pojo.OrderItem">
+        <many-to-one class="net.homeip.dvdstore.pojo.Movie" column="MovieId" name="movie"/>
+        <property column="MoviePrice" name="movPrice" type="double"/>
+        <property column="MovieSaleOff" name="movSaleOff" type="double"/>
+        <property column="Quantity" name="quantity" type="integer"/>
+      </composite-element>
+    </set>
+    <property column="StartDate" name="startDate" type="timestamp"/>
+    <property column="EndDate" name="endDate" type="timestamp"/>
+  </class>
+  <query name="findOrderByMovieId">
+        from Order ord inner join ord.orderItem ordItm where ordItm.movie.movId = :movId
+    </query>
+  <query name="findOrderByUserId">
+        from Order ord where ord.user.userId = :userId
+    </query>
+  <query name="findPendingOrder">
+        from Order ord where ord.endDate = null order by ord.startDate desc
+    </query>
+  <query name="findExportCard">
+        
+            from Order ord where ord.user.userName like :userNameSearch
+            and ord.endDate != null
+            and ord.endDate &lt; :endDateSearch
+            and ord.endDate &gt;= :startDateSearch
+            order by ord.endDate desc
+        
+    </query>
+  <query name="findExportCardIdByUserId">        
+        
+            select ord.orderId from Order ord where ord.user.userId = :userId
+            and ord.endDate != null
+            order by ord.endDate desc
+        
+    </query>
+  <!--<query name="getUserByUserName">
+        from User u where u.userName = :userName
+    </query>-->
+  <!--    <sql-query callable="true" name="getUser" >
+        <return-scalar column="UserId" type="long" />
+        {call usp_test}
+    </sql-query>
+    <sql-query name="getTotalRow" >
+        <return-scalar column="total" type="long" />
+        select @@rowcount as total
+    </sql-query>-->
+</hibernate-mapping>

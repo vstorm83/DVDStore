@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+
+    <bean id="adminSecurityFilterChain" class="org.springframework.security.util.FilterChainProxy" >
+        <security:filter-chain-map path-type="ant" >
+            <security:filter-chain pattern="/**" filters="
+                                   adminHttpSessionIntergrationFilter,
+                                   adminLogoutFilter,                                   
+                                   adminExceptionTranslationFilter,
+                                   adminFilterSecurityInterceptor"/>
+        </security:filter-chain-map>
+    </bean>
+
+    <bean id="adminSessionRegistry" class="org.springframework.security.concurrent.SessionRegistryImpl" />
+
+    <!--Khi sử dụng RememberMeService chung với concurrentSessionFilter cần đặt forceEagerSessionCreation-->
+    <bean id="adminHttpSessionIntergrationFilter" class="org.springframework.security.context.HttpSessionContextIntegrationFilter" >
+        <property name="forceEagerSessionCreation" value="true" />
+    </bean>
+
+    <bean id="adminExceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter" >
+        <property name="accessDeniedHandler" >
+            <bean class="org.springframework.security.ui.AccessDeniedHandlerImpl" >
+                <property name="errorPage" value="/WEB-INF/soapResponse/ServerFail.xml" />
+            </bean>
+        </property>
+        <property name="authenticationEntryPoint">
+            <bean class="org.springframework.security.ui.webapp.AuthenticationProcessingFilterEntryPoint" >
+                <property name="loginFormUrl" value="/WEB-INF/soapResponse/ServerFail.xml" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="adminFilterSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor" >
+        <property name="accessDecisionManager" ref="accessDecisionManager" />
+        <property name="authenticationManager" ref="adminAuthenticationManager" />
+        <property name="objectDefinitionSource" >
+            <value>
+                CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                PATTERN_TYPE_APACHE_ANT
+                /webservice/changecrentialsservice*=PERMIT_Admin
+                /webservice/actorservice*=PERMIT_Admin
+                /webservice/adminconfigurationservice*=PERMIT_Admin
+                /webservice/bussinessiframeservice*=PERMIT_Admin
+                /webservice/chatwebservice*=PERMIT_Admin
+                /webservice/choosemovieservice*=PERMIT_Admin
+                /webservice/directorservice*=PERMIT_Admin
+                /webservice/exportcardpanelservice*=PERMIT_Admin
+                /webservice/goodiframeservice*=PERMIT_Admin
+                /webservice/importcardpanelservice*=PERMIT_Admin
+                /webservice/moviecatgoryservice*=PERMIT_Admin
+                /webservice/reportdialogservice*=PERMIT_Admin
+                /webservice/supplierservice*=PERMIT_Admin
+                /webservice/useriframeservice*=PERMIT_Admin
+            </value>
+        </property>
+    </bean>
+    
+    <bean id="adminAuthenticationManager" class="org.springframework.security.providers.ProviderManager" >
+        <property name="providers" >
+            <list>
+                <ref bean="adminDaoAuthenticationProvider" />
+            </list>
+        </property>
+        
+    </bean>
+    <bean id="adminDaoAuthenticationProvider" class="org.springframework.security.providers.dao.DaoAuthenticationProvider" >
+        <property name="userDetailsService" ref="acegiAdminService" />
+        <property name="hideUserNotFoundExceptions" value="true" />
+        <!--<property name="messageSource" ref="messageSource" />-->
+    </bean>
+
+    <bean id="acegiAdminService" class="net.homeip.dvdstore.service.AcegiAdminService" >
+        <property name="adminDAO" ref="adminDAO" />
+    </bean>
+
+    <bean id="adminLogoutFilter" class="net.homeip.dvdstore.security.filter.WSLogoutFilter" >
+        <constructor-arg value="/WEB-INF/soapResponse/AdminLogout.xml" />
+        <constructor-arg >
+            <list>
+                <ref bean="securityContextLogoutHandler" />
+            </list>
+        </constructor-arg>
+        <property name="filterProcessesUrl" value="/webservice/AdminLogoutService" />
+    </bean>    
+
+</beans>

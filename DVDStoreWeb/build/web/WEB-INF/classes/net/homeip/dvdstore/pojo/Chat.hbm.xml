@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.Chat" table="Chat">
+    <id column="ChatId" name="chatId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="ChatNick" name="chatNick" type="string"/>
+  </class>
+  <query name="findChat">
+        from Chat
+    </query>
+  <query name="findChatIdByChatNick">
+        select c.chatId from Chat c where c.chatNick = :chatNick
+    </query>
+</hibernate-mapping>

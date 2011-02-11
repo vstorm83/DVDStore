@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.Supplier" table="Supplier">
+    <id column="SupplierId" name="supplierId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="SupplierName" name="supplierName" type="string"/>
+  </class>
+  <query name="findSupplier">
+        from Supplier sp order by sp.supplierName
+    </query>
+  <query name="findSupplierIdBySupplierName">
+        select s.supplierId from Supplier s where s.supplierName = :supplierName
+    </query>
+</hibernate-mapping>

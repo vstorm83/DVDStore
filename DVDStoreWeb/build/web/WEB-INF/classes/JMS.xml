@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" >
+        <property name="brokerURL" value="tcp://localhost:61616" />
+        <property name="userName" value="dvdstoreSender" />
+        <property name="password" value="123" />
+    </bean>
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" >
+        <property name="connectionFactory" ref="jmsConnectionFactory" />
+        <property name="messageConverter" ref="messageConverter" />
+        <property name="receiveTimeout" value="10000" />
+        <!--<property name="timeToLive" value="1" />-->
+        <property name="deliveryPersistent" value="false" />
+    </bean>
+    <bean id="messageConverter" class="net.homeip.dvdstore.jms.converter.DSMessageConverter" />
+    <bean id="dvdstoreLogoutTopic" class="org.apache.activemq.command.ActiveMQTopic" >
+        <property name="physicalName" value="dvdstore.topic.logout" />
+    </bean>
+    <bean id="orderTopic" class="org.apache.activemq.command.ActiveMQTopic" >
+        <property name="physicalName" value="dvdstore.topic.order" />
+    </bean>
+    <bean id="userChangeTopic" class="org.apache.activemq.command.ActiveMQTopic" >
+        <property name="physicalName" value="dvdstore.topic.userChange" />
+    </bean>
+    <bean id="userRegisterTopic" class="org.apache.activemq.command.ActiveMQTopic" >
+        <property name="physicalName" value="dvdstore.topic.userRegister" />
+    </bean>
+</beans>

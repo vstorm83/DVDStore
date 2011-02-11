@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" >
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" >
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+    </bean>
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate" >
+        <property name="transactionManager" ref="transactionManager" />
+    </bean>
+    <bean id="userDAO" class="net.homeip.dvdstore.dao.UserDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:advisor
+            pointcut="execution(* *..DSUserService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..PlaceOrderService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..AdvertismentService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..MovieCatgoryService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ChatService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..DirectorService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ActorService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ChatWebService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..SupplierService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..MovieService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..AdminLoginService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ChangeCredentialsService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..GoodsIFrameService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..BussinessIFrameService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ChooseMovieDialogService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ExportCardPanelService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ImportCardPanelService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..UserIFrameService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..ReportDialogService.*(..))"
+            advice-ref="txAdvice"/>
+        <aop:advisor
+            pointcut="execution(* *..AdminConfigurationService.*(..))"
+            advice-ref="txAdvice"/>
+    </aop:config>
+    <bean id="configurationDAO" class="net.homeip.dvdstore.dao.ConfigurationDAOImpl" >
+        <property name="properties" >
+            <bean class="net.homeip.dvdstore.web.listener.ConfigurationLoader"
+                  factory-method="getProperties" />
+        </property>
+    </bean>
+    <bean id="shoppingCartDAO" class="net.homeip.dvdstore.dao.ShoppingCartDAOImpl" />
+    <bean id="movieDAO" class="net.homeip.dvdstore.dao.MovieDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="orderDAO" class="net.homeip.dvdstore.dao.OrderDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="advertismentDAO" class="net.homeip.dvdstore.dao.AdvertismentDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="chatDAO" class="net.homeip.dvdstore.dao.ChatDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="movieCatgoryDAO" class="net.homeip.dvdstore.dao.MovieCatgoryDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="directorDAO" class="net.homeip.dvdstore.dao.DirectorDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="adminDAO" class="net.homeip.dvdstore.dao.AdminDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="actorDAO" class="net.homeip.dvdstore.dao.ActorDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="timeDAO" class="net.homeip.dvdstore.dao.TimeDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="supplierDAO" class="net.homeip.dvdstore.dao.SupplierDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    <bean id="importCardDAO" class="net.homeip.dvdstore.dao.ImportCardDAOImpl" >
+        <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+</beans>

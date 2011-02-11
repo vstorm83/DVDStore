@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="baseAction" abstract="true" scope="prototype">
+        <property name="movieService" ref="movieService" />
+        <property name="movieCatgoryService" ref="movieCatgoryService" />
+        <property name="advertismentService" ref="advertismentService" />
+        <property name="chatService" ref="chatService" />
+        <property name="placeOrderService" ref="placeOrderService" />
+        <property name="configurationService" ref="configurationService" />
+    </bean>
+    <bean id="homeAction" class="net.homeip.dvdstore.struts.action.HomeAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+    <bean id="loginAction" class="net.homeip.dvdstore.struts.action.user.LoginAction"
+          scope="prototype" parent="baseAction"/>
+    <bean id="movieListAction" class="net.homeip.dvdstore.struts.action.movie.MovieListAction"
+          scope="prototype" parent="baseAction" >
+    </bean>
+    <bean id="contactAction" class="net.homeip.dvdstore.struts.action.ContactAction"
+          scope="prototype" parent="baseAction" />
+    <bean id="guideAction" class="net.homeip.dvdstore.struts.action.GuideAction"
+          scope="prototype" parent="baseAction" />
+    <bean id="registerAction" class="net.homeip.dvdstore.struts.action.user.RegisterAction"
+          scope="prototype" parent="baseAction" >
+        <property name="captchaService" ref="captchaService" />
+        <property name="userService" ref="dsUserService" />
+    </bean>
+    <bean id="deliveryInfoModifyAction" class="net.homeip.dvdstore.struts.action.user.DeliveryInfoModifyAction"
+          scope="prototype" parent="baseAction" >
+        <property name="userService" ref="dsUserService" />
+    </bean>
+    <bean id="credentialsModifyAction" class="net.homeip.dvdstore.struts.action.user.CredentialsModifyAction"
+          scope="prototype" parent="baseAction" >
+        <property name="userService" ref="dsUserService" />
+    </bean>
+    <bean id="placeOrderAction" class="net.homeip.dvdstore.struts.action.movie.PlaceOrderAction"
+          scope="prototype" parent="baseAction" />
+    <bean id="captchaGenAction" class="net.homeip.dvdstore.struts.action.CaptchaGenAction"
+          scope="prototype">
+        <property name="captchaService" ref="captchaService" />
+    </bean>
+    <bean id="movieDetailAction" class="net.homeip.dvdstore.struts.action.movie.MovieDetailAction"
+          scope="prototype" parent="baseAction" />    
+</beans>

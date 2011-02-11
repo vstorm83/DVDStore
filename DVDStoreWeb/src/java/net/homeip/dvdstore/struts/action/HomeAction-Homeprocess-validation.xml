@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd">
+<validators>
+    <!-- Field-Validator Syntax -->
+    <field name="dateOfBirth">
+        <field-validator type="date">
+            <param name="max">01/26/2010</param>
+            <message key="invalidDateMax.dateOfBirth" />
+        </field-validator>        
+    </field>
+    <field name="favoristList">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[favoristList.size() > 0]]></param>
+            <message key="required.favoristList" />
+        </field-validator>
+    </field>
+</validators>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExportCardItemReport" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="movCatName" class="java.lang.String">
+		<fieldDescription><![CDATA[movCatName]]></fieldDescription>
+	</field>
+	<field name="movName" class="java.lang.String">
+		<fieldDescription><![CDATA[movName]]></fieldDescription>
+	</field>
+	<field name="movPrice" class="java.lang.Double">
+		<fieldDescription><![CDATA[movPrice]]></fieldDescription>
+	</field>
+	<field name="movSaleOff" class="java.lang.Double">
+		<fieldDescription><![CDATA[movSaleOff]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantity]]></fieldDescription>
+	</field>
+	<variable name="money" class="java.lang.Double">
+		<variableExpression><![CDATA[($F{movPrice}-$F{movPrice}*$F{movSaleOff}/100)*$F{quantity}]]></variableExpression>
+	</variable>
+	<variable name="totalQuantity" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{quantity}]]></variableExpression>
+	</variable>
+	<variable name="totalMoney" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{money}]]></variableExpression>
+	</variable>
+	<columnHeader>
+		<band height="18">
+			<staticText>
+				<reportElement mode="Opaque" x="10" y="0" width="134" height="18" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement>
+					<font size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Tên phim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="144" y="0" width="125" height="18" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement>
+					<font size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Loại phim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="269" y="0" width="133" height="18" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Center">
+					<font size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="402" y="0" width="53" height="18" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Center">
+					<font size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Số bộ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="455" y="0" width="100" height="18" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Center">
+					<font size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="10" y="0" width="134" height="20"/>
+				<textElement>
+					<font size="10" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{movName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="144" y="0" width="125" height="20"/>
+				<textElement>
+					<font size="10" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{movCatName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="133" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{movPrice}.toString().concat(",Gg:").concat(
+        $F{movSaleOff}.toString()).concat("%)")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="53" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="10" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="97" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="10" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{money}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="402" y="0" width="53" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{totalQuantity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="1" width="64" height="20" backcolor="#999999"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Tổng]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="0" width="97" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalMoney}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

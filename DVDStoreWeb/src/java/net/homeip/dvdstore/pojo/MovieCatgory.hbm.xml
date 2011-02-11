@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.MovieCatgory" table="MovieCatgory">
+    <id column="MovieCatgoryId" name="movCatId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="MovieCatgoryName" name="movCatName" type="string"/>
+  </class>
+  <query name="findMovieCatgory">
+      from MovieCatgory cat order by cat.movCatName
+  </query>
+  <query name="findMovCatIdByMovCatName">
+      select cat.movCatId from MovieCatgory cat where cat.movCatName = :movCatName
+  </query>
+</hibernate-mapping>

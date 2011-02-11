@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xsi:schemaLocation="
+       http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+    <bean id="adminLoginService" class="net.homeip.dvdstore.webservice.AdminLoginServiceImpl" >
+        <property name="authenticationManager" ref="adminAuthenticationManager" />
+        <property name="jmsTemplate" ref="jmsTemplate" />
+        <property name="adminSessionRegistry" ref="adminSessionRegistry" />
+        <property name="dvdstoreLogoutTopic" ref="dvdstoreLogoutTopic" />
+    </bean>
+    <bean id="adminLogoutService" class="net.homeip.dvdstore.webservice.AdminLogoutServiceImpl" />
+    <bean id="changeCredentialsService" class="net.homeip.dvdstore.webservice.ChangeCredentialsServiceImpl" >
+        <property name="adminDAO" ref="adminDAO" />
+    </bean>
+
+    <bean id="movieCatgoryService" class="net.homeip.dvdstore.webservice.MovieCatgoryServiceImpl" >
+        <property name="movieCatgoryDAO" ref="movieCatgoryDAO" />
+        <property name="movieDAO" ref="movieDAO" />
+    </bean>
+    <bean id="directorService" class="net.homeip.dvdstore.webservice.DirectorServiceImpl" >
+        <property name="directorDAO" ref="directorDAO" />
+        <property name="movieDAO" ref="movieDAO" />
+    </bean>
+    <bean id="actorService" class="net.homeip.dvdstore.webservice.ActorServiceImpl" >
+        <property name="actorDAO" ref="actorDAO" />
+    </bean>
+    <bean id="chatWebService" class="net.homeip.dvdstore.webservice.ChatWebServiceImpl">
+        <property name="chatDAO" ref="chatDAO" />
+    </bean>
+    <bean id="supplierService" class="net.homeip.dvdstore.webservice.SupplierServiceImpl" >
+        <property name="supplierDAO" ref="supplierDAO" />
+        <property name="importCardDAO" ref="importCardDAO" />
+    </bean>
+    <bean id="goodsIFrameService" class="net.homeip.dvdstore.webservice.GoodsIFrameServiceImpl">
+        <property name="directorService" ref="directorService"/>
+        <property name="movieCatgoryService" ref="movieCatgoryService" />
+        <property name="movieService" ref="movieService" />
+    </bean>
+    <bean id="bussinessIFrameService" class="net.homeip.dvdstore.webservice.BussinessIFrameServiceImpl">
+        <property name="movieDAO" ref="movieDAO" />
+        <property name="orderDAO" ref="orderDAO" />
+        <property name="configurationService" ref="configurationService" />
+    </bean>
+    <bean id="chooseMovieDialogService" class="net.homeip.dvdstore.webservice.ChooseMovieDialogServiceImpl">
+        <property name="movieCatgoryDAO" ref="movieCatgoryDAO"/>
+        <property name="movieDAO" ref="movieDAO" />
+    </bean>
+    <bean id="exportCardPanelService" class="net.homeip.dvdstore.webservice.ExportCardPanelServiceImpl">
+        <property name="configurationService" ref="configurationService" />
+        <property name="orderDAO" ref="orderDAO" />
+        <property name="reportService" ref="reportService" />
+    </bean>
+    <bean id="importCardPanelService" class="net.homeip.dvdstore.webservice.ImportCardPanelServiceImpl">
+        <property name="configurationService" ref="configurationService" />
+        <property name="importCardDAO" ref="importCardDAO" />
+        <property name="supplierDAO" ref="supplierDAO" />
+        <property name="movieDAO" ref="movieDAO" />
+        <property name="reportService" ref="reportService" />
+    </bean>
+    <bean id="userIFrameService" class="net.homeip.dvdstore.webservice.UserIFrameServiceImpl">
+        <property name="configurationService" ref="configurationService" />
+        <property name="userDAO" ref="userDAO" />
+        <property name="orderDAO" ref="orderDAO" />
+        <property name="exportCardPanelService" ref="exportCardPanelService" />
+    </bean>
+    <bean id="adminConfigurationService" class="net.homeip.dvdstore.webservice.AdminConfigurationServiceImpl">
+        <property name="configurationDAO" ref="configurationDAO" />
+    </bean>
+    <bean id="reportDialogService" class="net.homeip.dvdstore.webservice.ReportDialogServiceImpl">
+        <property name="reportService" ref="reportService" />
+        <property name="movieCatgoryDAO" ref="movieCatgoryDAO" />
+        <property name="movieDAO" ref="movieDAO" />
+        <property name="directorDAO" ref="directorDAO" />
+        <property name="actorDAO" ref="actorDAO" />
+        <property name="supplierDAO" ref="supplierDAO" />
+        <property name="timeDAO" ref="timeDAO" />
+        <property name="userDAO" ref="userDAO" />
+    </bean>
+
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.AdminLoginServiceImpl"
+                    address="/AdminLoginService" implementor="#adminLoginService" />
+    <jaxws:endpoint address="/AdminLogoutService" implementor="#adminLogoutService" />
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ChangeCredentialsServiceImpl"
+                    address="/ChangeCredentialsService" implementor="#changeCredentialsService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.MovieCatgoryServiceImpl"
+                    address="/MovieCatgoryService" implementor="#movieCatgoryService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.DirectorServiceImpl"
+                    address="/DirectorService" implementor="#directorService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ActorServiceImpl"
+                    address="/ActorService" implementor="#actorService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ChatWebServiceImpl"
+                    address="/ChatWebService" implementor="#chatWebService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.SupplierServiceImpl"
+                    address="/SupplierService" implementor="#supplierService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.GoodsIFrameServiceImpl"
+                    address="/GoodsIFrameService" implementor="#goodsIFrameService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.BussinessIFrameServiceImpl"
+                    address="/BussinessIFrameService" implementor="#bussinessIFrameService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ChooseMovieDialogServiceImpl"
+                    address="/ChooseMovieDialogService" implementor="#chooseMovieDialogService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ExportCardPanelServiceImpl"
+                    address="/ExportCardPanelService" implementor="#exportCardPanelService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ImportCardPanelServiceImpl"
+                    address="/ImportCardPanelService" implementor="#importCardPanelService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.UserIFrameServiceImpl"
+                    address="/UserIFrameService" implementor="#userIFrameService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.AdminConfigurationServiceImpl"
+                    address="/AdminConfigurationService" implementor="#adminConfigurationService"/>
+    <jaxws:endpoint implementorClass="net.homeip.dvdstore.webservice.ReportDialogServiceImpl"
+                    address="/ReportDialogService" implementor="#reportDialogService"/>
+    <!--<cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+        </cxf:features>
+    </cxf:bus>-->
+</beans>

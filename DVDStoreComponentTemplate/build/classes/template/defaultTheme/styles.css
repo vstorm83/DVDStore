@@ -1,0 +1,278 @@
+.wwFormTable {}
+.label {
+    font-size: 14px;
+}
+.errorLabel {
+    color:red;
+}
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+    text-align:right;
+    vertical-align:middle;
+}
+/*Place Order Form*/
+.deliveryInfoLabel {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+}
+/*Register Form*/
+.note {
+    color:#FF0000;
+    font-size:14px;
+    font-weight:normal;
+}
+.registerHeader {
+    color: rgb(255, 0, 102);
+    font-weight: bold;
+    font-family: Arial; 
+    font-size: 20px;
+}
+.smallRegisterHeader {
+    color: rgb(51, 51, 153);
+}
+/*Form Element*/
+.sidebarLabel {
+    color: white;
+    font-size: 14px;
+}
+.sidebarErrorLabel {
+    color:red;
+    font-size: 14px;
+}
+
+body,td,th {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+}
+.backgroundImage {
+    background-image: url(images/bgr.gif);
+}
+.seeMore {
+    color: #FFCC33;
+    font-weight:bold;
+    font-size:13px;
+    text-decoration: none;
+}
+.itemList_td_small_title {
+    background-image: url(images/titlebg.gif);
+    text-align: center;
+    color: #FFCC33;
+    font-weight: bold;
+    font-size: 13px;
+    height: 26px;
+}
+.itemList_td_title {
+    background-image: url(images/bannerbg.png);
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    height: 26px;
+}
+.itemList_td_gradienBackground {
+    background-image: url(images/bgmenu.png);
+}
+.itemList_td_titleUnderline {
+    background-image: url(images/rul.jpg);
+    height: 11px;
+}
+.itemList_td_monoBackground {
+    background-color: #666666;
+}
+/*Movie Cell*/
+#movieLink {
+    color: #0000FF;
+    text-decoration: none;
+    font-size: 14px;
+}
+#movieLinkMouseOver {
+    color: #FF9900;
+    text-decoration: underline;
+    font-size: 14px;
+}
+/*Movie Catgory*/
+#movieCatgoryLink {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.movieCatgoryItemIcon {
+    background-image: url(images/here.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#movieCatgoryLinkMouseOver {
+    color: #FF9900;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*Top Banner*/
+.topBanner {
+    background-image: url(images/banner.png);
+    height: 109px;
+}
+/*Top Menu*/
+#topMenu {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+#topMenuMouseOver {
+    color: #FF9900;
+    font-weight: bold;
+    text-decoration: none;
+}
+.topMenuBackground {
+    background-image: url(images/bannerbg.png);
+}
+.topMenuSeperator {
+    background-image: url(images/topMenuSeperator.jpg);
+}
+.topMenuLeftBackground {
+    background-image: url(images/bannerb.png);
+}
+.topMenuRightBackground {
+    background-image: url(images/topMenuRightBackground.gif);
+}
+/*Bottom Menu*/
+.bottomMenu {
+    font-size: 14px;
+    color: #FFF;
+    height: 55px;
+    background-image: url(images/FooterBackground.gif);
+}
+/*Main Page*/
+.newestMovieName {
+    font-size: 21px;
+    color: rgb(224, 71, 27);
+    text-decoration: none;
+    font-weight: bold;
+}
+.newestMovieDescription {
+    text-align: justify;
+    text-indent: 20px;
+}
+.newestMovieContinue {
+    color: rgb(51, 0, 255);
+}
+.searchBar {
+    background-image: url(images/titlebg2.gif);
+    height:21px;
+}
+.searchBarLink{
+    color:#FFCC00;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration: none;
+}
+/*Movie detail page*/
+.movieDetailDescription {
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 14px;
+}
+.movieDetailMoney {
+    color: rgb(255, 0, 0);
+}
+.smallMovieDetailTable {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+}
+.orderButton {
+    background-color:#333333;
+    color:white;
+    font-weight:800;
+    height:24px;
+    width:72px;
+}
+.movieDetailName {
+    color:#FF9900;
+    font-size:18px;
+    text-indent: 10px;
+}
+/*chat*/
+.chatTitle {
+    color:#FF0000;
+    font-size:14px;
+}
+.chatBackground {
+    background-color: #FFFF00;
+}
+/*Shopping Cart*/
+.shoppingCartIcon {
+    background-image: url(images/logo.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    vertical-align: middle;
+    height: 129px;
+}
+.shoppingCartText {
+    color:#FFFFFF;
+    font-size:14px;
+}
+.shoppingCartNum {
+    color: rgb(255, 0, 0);
+}
+.shoppingCartButton {
+    font-size:12px;
+    width:90px;
+}
+/*Phân trang*/
+.pagingCurrent {
+}
+.pagingRemain {
+    color: rgb(255, 0, 0);
+}
+/*Liên hệ*/
+.contacCompanyName {
+    color: rgb(153, 51, 204);
+    font-size: 20px;
+    font-weight: bold;
+}
+.contactLabel {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+    font-weight: bold;
+}
+/*modifyUser*/
+#modifyUserLink {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 14px;
+}
+#modifyUserLinkMouseOver {
+    color: #FF9900;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: bold;
+}
+/*Center Login Form Header*/
+.centerLoginFormHeader {
+    color: rgb(51, 51, 153);
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}
+/*Delivery info modify Form*/
+.deliveryInfoModifyForm {
+    color: rgb(51, 51, 153);
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}

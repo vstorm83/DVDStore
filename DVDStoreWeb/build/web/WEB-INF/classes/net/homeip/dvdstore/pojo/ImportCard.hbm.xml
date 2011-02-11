@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.ImportCard" table="ImportCard">
+    <id column="ImportCardId" name="importCardId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <many-to-one cascade="save-update" class="net.homeip.dvdstore.pojo.Supplier" column="SupplierId" name="supplier"/>
+    <set name="importCardItem" table="ImportCardItem">
+      <key column="importCardId"/>
+      <composite-element class="net.homeip.dvdstore.pojo.ImportCardItem">
+        <many-to-one class="net.homeip.dvdstore.pojo.Movie" column="MovieId" name="movie"/>
+        <property column="MoviePrice" name="movPrice" type="double"/>
+        <property column="Quantity" name="quantity" type="integer"/>
+      </composite-element>
+    </set>
+    <property column="DateCreated" name="dateCreated" type="timestamp"/>
+  </class>
+  <query name="findImportCardBySupplierId">
+        from ImportCard im where im.supplier.supplierId = :supplierId
+    </query>
+  <query name="findImportCardByMovieId">
+        from ImportCard im inner join im.importCardItem imItm
+        where imItm.movie.movId = :movId
+    </query>
+  <query name="findImportCard">
+        
+            from ImportCard im
+            where im.supplier.supplierName like :supplierNameSearch
+            and im.dateCreated &lt; :endDateSearch
+            and im.dateCreated &gt;= :startDateSearch
+            order by im.dateCreated desc
+        
+    </query>
+  <!--<query name="getUserByUserName">
+        from User u where u.userName = :userName
+    </query>-->
+  <!--    <sql-query callable="true" name="getUser" >
+        <return-scalar column="UserId" type="long" />
+        {call usp_test}
+    </sql-query>
+    <sql-query name="getTotalRow" >
+        <return-scalar column="total" type="long" />
+        select @@rowcount as total
+    </sql-query>-->
+</hibernate-mapping>

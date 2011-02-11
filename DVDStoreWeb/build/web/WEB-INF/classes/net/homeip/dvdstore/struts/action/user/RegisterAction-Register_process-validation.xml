@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="model">
+        <field-validator type="visitor">
+            <!--nếu không ModelDriven thì không set-->
+            <param name="appendPrefix">false</param>
+            <message/>
+        </field-validator>
+    </field>
+    <field name="inputSecurityCode">
+        <field-validator type="requiredstring" short-circuit="true">
+            <message key="inputSecurityCode.required"/>
+        </field-validator>
+        <field-validator type="captcha">
+            <param name="captchaServiceExpr">captchaService</param>
+            <param name="captchaIdExpr">captchaId</param>
+            <message key="inputSecurityCode.invalid"/>
+        </field-validator>
+    </field>
+</validators>

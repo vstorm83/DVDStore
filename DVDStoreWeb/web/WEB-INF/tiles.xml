@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="base" template="/WEB-INF/jspTemplate/Base.jsp">
+        <put-attribute name="leftSidebar" value="leftSidebar"/>
+        <put-attribute name="bodyContent" value="BodyContent"/>
+        <put-attribute name="rightSidebar" value="/WEB-INF/jspTemplate/RightSidebar.jsp"/>
+    </definition>
+    <definition name="leftSidebar" template="/WEB-INF/jspTemplate/LeftSidebar.jsp">
+        <put-attribute name="loginSidebarItem" value="/WEB-INF/jspTemplate/LoginSidebarItem.jsp"/>
+    </definition>
+    <definition name="leftSidebarLogin" extends="leftSidebar">
+        <put-attribute name="loginSidebarItem" value="/WEB-INF/jspTemplate/LoginSidebarItemForLoginPage.jsp"/>
+    </definition>
+    <definition name="home" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/Home.jsp"/>
+    </definition>
+    <definition name="contact" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/Contact.jsp"/>
+    </definition>
+    <definition name="guide" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/Guide.jsp"/>
+    </definition>
+    <definition name="register" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/Register.jsp"/>
+    </definition>
+    <definition name="registerSuccess" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/RegisterSuccess.jsp"/>
+    </definition>
+    <definition name="login" extends="base">
+        <put-attribute name="leftSidebar" value="leftSidebarLogin"/>
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/Login.jsp"/>
+    </definition>
+    <definition name="movieSearchResult" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/MovieSearchResult.jsp"/>
+    </definition>
+    <definition name="placeOrderForm" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/PlaceOrderForm.jsp"/>
+    </definition>
+    <definition name="placeOrderConfirm" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/PlaceOrderConfirm.jsp"/>
+    </definition>
+    <definition name="placeOrderSuccess" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/PlaceOrderSuccess.jsp"/>
+    </definition>
+    <definition name="deliveryInfoModify" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/DeliveryInfoModify.jsp"/>
+    </definition>
+    <definition name="credentialsModify" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/CredentialsModify.jsp"/>
+    </definition>
+    <definition name="movieDetail" extends="base">
+        <put-attribute name="bodyContent" value="/WEB-INF/jspTemplate/MovieDetail.jsp"/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.User" table="DSUser">
+    <id column="UserId" name="userId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="UserName" name="userName" type="string"/>
+    <property column="Pass" name="password" type="string"/>
+    <component class="net.homeip.dvdstore.pojo.web.vo.DeliveryInfo" name="deliveryInfo">
+      <property column="FirstName" name="firstName" type="string"/>
+      <property column="LastName" name="lastName" type="string"/>
+      <property column="Address" name="address" type="string"/>
+      <property column="Tel" name="tel" type="string"/>
+      <property column="Email" name="email" type="string"/>
+    </component>
+    <property column="DateCreated" name="dateCreated" type="timestamp"/>
+  </class>
+  <query name="getUserByUserName">
+         from User u where u.userName = :userName 
+    </query>
+  <query name="getUserIdByEmail">
+         select u.userId from User u where u.deliveryInfo.email = :email
+    </query>
+  <query name="getUserIdByUserName">
+         select u.userId from User u where u.userName = :userName 
+    </query>
+  <query name="getDeliveryInfoByUserId">
+         select new net.homeip.dvdstore.pojo.web.vo.DeliveryInfo(u.deliveryInfo.firstName,
+                                          u.deliveryInfo.lastName,
+                                          u.deliveryInfo.address,
+                                          u.deliveryInfo.tel,
+                                          u.deliveryInfo.email) from User u where u.userId = :userId 
+    </query>
+  <!--    <sql-query callable="true" name="getUser" >
+        <return-scalar column="UserId" type="long" />
+        {call usp_test}
+    </sql-query>
+    <sql-query name="getTotalRow" >
+        <return-scalar column="total" type="long" />
+        select @@rowcount as total
+    </sql-query>-->
+</hibernate-mapping>

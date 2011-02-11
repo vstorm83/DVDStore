@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+       xsi:schemaLocation="
+       http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+       http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.AdminLoginService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/AdminLoginService" id="adminLoginService" >
+        <jaxws:inInterceptors>
+            <ref bean="getSessionId" />
+        </jaxws:inInterceptors>
+        <jaxws:inFaultInterceptors>
+            <ref bean="getSessionId" />
+        </jaxws:inFaultInterceptors>
+    </jaxws:client>
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.AdminLogoutService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/AdminLogoutService"
+                  id="adminLogoutService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ChangeCredentialsService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ChangeCredentialsService"
+                  id="changeCredentialsService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.MovieCatgoryService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/MovieCatgoryService"
+                  id="movieCatgoryService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.DirectorService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/DirectorService"
+                  id="directorService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ActorService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ActorService"
+                  id="actorService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.SupplierService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/SupplierService"
+                  id="supplierService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ChatWebService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ChatWebService"
+                  id="chatWebService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.GoodsIFrameService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/GoodsIFrameService"
+                  id="goodsIFrameService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.BussinessIFrameService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/BussinessIFrameService"
+                  id="bussinessIFrameService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ChooseMovieDialogService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ChooseMovieDialogService"
+                  id="chooseMovieDialogService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ExportCardPanelService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ExportCardPanelService"
+                  id="exportCardPanelService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ImportCardPanelService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ImportCardPanelService"
+                  id="importCardPanelService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.UserIFrameService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/UserIFrameService"
+                  id="userIFrameService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.AdminConfigurationService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/AdminConfigurationService"
+                  id="adminConfigurationService" />
+    <jaxws:client serviceClass="net.homeip.dvdstore.webservice.ReportDialogService"
+                  address="http://localhost:8080/DVDStoreWeb/webservice/ReportDialogService"
+                  id="reportDialogService" />
+    <cxf:bus>
+        <cxf:outInterceptors>
+            <ref bean="putSessionId"/>
+        </cxf:outInterceptors><!--
+        <cxf:outFaultInterceptors>
+             <ref bean="GZIPStream"/>
+        </cxf:outFaultInterceptors>-->
+        <!--<cxf:features>
+            <cxf:logging/>
+        </cxf:features>-->
+    </cxf:bus>
+
+    <bean id="getSessionId" class="net.homeip.dvdstore.interceptor.GetSessionIdInterceptor" />
+    <bean id="putSessionId" class="net.homeip.dvdstore.interceptor.PutSessionIdInterceptor" />
+
+    <http-conf:conduit name="*.http-conduit" >
+        <http-conf:client ReceiveTimeout="10000" />
+        <!--<http-conf:tlsClientParameters secureSocketProtocol="SSL" >
+            <sec:keyManagers  keyPassword="newbush" >
+                <sec:keyStore type="JKS"  password="newbush"
+                    file="C:\Documents and Settings\VU VIET PHUONG\.keystore" />
+            </sec:keyManagers>
+            <sec:trustManagers>
+                <sec:keyStore type="JKS" password="newbush"
+               file="C:\Documents and Settings\VU VIET PHUONG\.keystore"/>
+            </sec:trustManagers>
+        </http-conf:tlsClientParameters>-->
+    </http-conf:conduit>
+
+    <!--Delegate-->
+    <bean id="adminLoginServiceDelegate" class="net.homeip.dvdstore.delegate.AdminLoginServiceDelegateImpl">
+        <property name="adminLoginService" ref="adminLoginService" />
+    </bean>
+    <bean id="adminLogoutServiceDelegate" class="net.homeip.dvdstore.delegate.AdminLogoutServiceDelegateImpl">
+        <property name="adminLogoutService" ref="adminLogoutService" />
+    </bean>
+    <bean id="changeCredentialsServiceDelegate" class="net.homeip.dvdstore.delegate.ChangeCredentialsServiceDelegateImpl">
+        <property name="changeCredentialsService" ref="changeCredentialsService" />
+    </bean>
+    <bean id="movieCatgoryServiceDelegate" class="net.homeip.dvdstore.delegate.MovieCatgoryServiceDelegateImpl" >
+        <property name="movieCatgoryService" ref="movieCatgoryService" />
+    </bean>
+    <bean id="directorServiceDelegate" class="net.homeip.dvdstore.delegate.DirectorServiceDelegateImpl" >
+        <property name="directorService" ref="directorService" />
+    </bean>
+    <bean id="actorServiceDelegate" class="net.homeip.dvdstore.delegate.ActorServiceDelegateImpl" >
+        <property name="actorService" ref="actorService" />
+    </bean>
+    <bean id="supplierServiceDelegate" class="net.homeip.dvdstore.delegate.SupplierServiceDelegateImpl" >
+        <property name="supplierService" ref="supplierService" />
+    </bean>
+    <bean id="chatServiceDelegate" class="net.homeip.dvdstore.delegate.ChatServiceDelegateImpl" >
+        <property name="chatWebService" ref="chatWebService" />
+    </bean>
+    <bean id="goodsIFrameServiceDelegate" class="net.homeip.dvdstore.delegate.frame.GoodsIFrameServiceDelegateImpl" >
+        <property name="goodsIFrameService"  ref="goodsIFrameService" />
+    </bean>
+    <bean id="bussinessIFrameServiceDelegate" class="net.homeip.dvdstore.delegate.frame.BussinessIFrameServiceDelegateImpl" >
+        <property name="bussinessIFrameService" ref="bussinessIFrameService" />
+    </bean>
+    <bean id="chooseMovieDialogServiceDelegate" class="net.homeip.dvdstore.delegate.ChooseMovieDialogServiceDelegateImpl" >
+        <property name="chooseMovieDialogService" ref="chooseMovieDialogService" />
+    </bean>
+    <bean id="exportCardPanelServiceDelegate" class="net.homeip.dvdstore.delegate.panel.ExportCardPanelServiceDelegateImpl" >
+        <property name="exportCardPanelService" ref="exportCardPanelService" />
+    </bean>
+    <bean id="importCardPanelServiceDelegate" class="net.homeip.dvdstore.delegate.panel.ImportCardPanelServiceDelegateImpl">
+        <property name="importCardPanelService" ref="importCardPanelService" />
+    </bean>
+    <bean id="userIFrameServiceDelegate" class="net.homeip.dvdstore.delegate.frame.UserIFrameServiceDelegateImpl" >
+        <property name="userIFrameService" ref="userIFrameService" />
+    </bean>
+    <bean id="configurationServiceDelegate" class="net.homeip.dvdstore.delegate.ConfigurationServiceDelegateImpl">
+        <property name="adminConfigurationService" ref="adminConfigurationService" />
+    </bean>
+    <bean id="reportDialogServiceDelegate" class="net.homeip.dvdstore.delegate.ReportDialogServiceDelegateImpl">
+        <property name="reportDialogService" ref="reportDialogService" />
+    </bean>
+</beans>

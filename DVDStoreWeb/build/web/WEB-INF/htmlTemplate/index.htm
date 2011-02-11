@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body onLoad="move_title(0,57);">
+<script type="text/javascript" src="JavaScript/dichchuyentilte.js" ></script>
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  rowspan="4" background="images/bgr.gif">&nbsp;</td>
+    <td height="109" width="786" colspan="3" align="center" valign="middle" background="images/banner.png"></td>
+    <td rowspan="4" background="images/bgr.gif">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="26" colspan="3">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr class="topMenuBackground">
+        <td height="26"></td>
+        <td width="83" align="center" valign="middle">
+        	<a href="" id="topMenu" onmouseover="this.id='topMenuMouseOver'" onmouseout="this.id='topMenu'">Trang chủ</a>
+        </td>
+        <td width="26" align="center" valign="middle" class="topMenuSeperator"></td>
+        <td width="76" align="center" valign="middle">
+        	<a href="" id="topMenu" onmouseover="this.id='topMenuMouseOver'" onmouseout="this.id='topMenu'">Kệ phim</a>
+        </td>
+        <td width="26" align="center" valign="middle" class="topMenuSeperator"></td>
+        <td width="91" align="center" valign="middle">
+        	<a href="" id="topMenu" onmouseover="this.id='topMenuMouseOver'" onmouseout="this.id='topMenu'">Hướng dẫn</a>
+        </td>
+        <td width="26" align="center" valign="middle" class="topMenuSeperator"></td>
+        <td width="81" align="center" valign="middle">
+        	<a href="" id="topMenu" onmouseover="this.id='topMenuMouseOver'" onmouseout="this.id='topMenu'">Đăng ký</a>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="150" align="center" valign="top">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">          
+          <tr>
+			<td class="itemList_td_title" height="26">
+				Danh Muc Phim
+			</td>
+          </tr>         
+          <tr>
+            <td class="itemList_td_gradienBackground">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">			  
+			  <tr>
+                <td colspan="4" class="movieCatgoryItemSpacing"></td>
+              </tr>
+			  <tr>
+			  	<td width="11"></td>
+				<td width="13" height="13" class="movieCatgoryItemIcon"></td>
+				<td width="7"></td>
+				<td width="109" align="left">
+					<a href="index.asp?action=search&amp;MaLoaiPhim=1" id="movieCatgoryLink" onmouseover="this.id='movieCatgoryLinkMouseOver'" onmouseout="this.id='movieCatgoryLink'">Hành Động</a>
+				</td>
+			  </tr>
+			  <tr>
+                <td colspan="4" class="movieCatgoryItemSpacing"></td>
+              </tr>
+            </table>
+		  </td>
+          </tr>
+         
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" id="tblLogin">
+         
+          <tr>
+            <td height="26" align="center" valign="middle" background="images/titlebg.gif"><span class="style11">Login</span></td>
+          </tr>
+          
+          <tr>
+            <td height="11" background="images/rul.jpg"></td>
+          </tr>
+          <tr>
+		
+            <td valign="top">
+              <table width="150" border="0" cellpadding="0" cellspacing="0" background="images/bgmenu.png" id="tblLogin_small">
+                <tr>  
+				<form action="" method="get" name="frmLogin" id="frmLogin">
+                  <td height="94" align="left" valign="middle"><span class="style11">&nbsp; T&ecirc;n &#273;&#259;ng nhập</span><br>
+&nbsp;
+      <input type="text" name="txtName" size="15">
+      <br>
+      <span class="style11">&nbsp; Mật khẩu</span><br>
+&nbsp;
+      <input name="txtPass" type="password" id="txtPass" size="12">
+      <input name="imgLogin" type="image" id="imgLogin" src="images/b_login.png" width="30" height="18" border="0">
+                  </td>
+				  </form>
+                </tr>
+                <tr>
+                  <td height="210" align="center" valign="bottom"><img src="images/quangcao.gif" width="125" height="195"></td>
+                </tr>
+                <tr>
+                  <td height="55" align="center"><input name="imageField" type="image" src="images/reg.gif" width="100" height="37" border="0"></td>
+                </tr>
+              </table>
+             </td> 
+          </tr>
+          
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" id="tblPhimMoi_Left">
+         
+          <tr>
+            <td height="26" align="center" valign="middle" background="images/titlebg.gif"><span class="style1">Phim mới</span></td>
+          </tr>
+          
+          <tr>
+            <td height="11" background="images/rul.jpg"></td>
+          </tr>
+          <tr>
+            
+              <td valign="top" bgcolor="#666666">
+			  <marquee direction="right" scrollamount="1" scrolldelay="45" truespeed height="500" behavior="scroll" onMouseOver="this.stop()" onMouseOut="this.start()">
+			  <table width="150" border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" id="tblPhimMoi_small">
+                <tr>
+                  <td height="210" align="center" valign="middle"><img src="uploads/MrBeansHolidayC.jpg" width="100">
+				    <span class="style12"><br>
+				    Mr. Bean‘s Holiday (Kỳ Nghỉ Của Ngài Bean)</span>				  </td>
+                </tr>
+                <tr>
+                  <td height="210" align="center" valign="middle"><img src="uploads/MrBeansHolidayC.jpg" width="100">
+				    <span class="style12"><br>Mr. Bean‘s Holiday (Kỳ Nghỉ Của Ngài Bean)</span>				  </td>
+                </tr>
+                <tr>
+                  <td height="210" align="center" valign="middle"><img src="uploads/MrBeansHolidayC.jpg" width="100">
+				    <span class="style12"><br>Mr. Bean‘s Holiday (Kỳ Nghỉ Của Ngài Bean)</span>				  </td>
+                </tr>
+                <tr>
+                  <td height="33" align="center" valign="top" class="style1">See more >></td>
+                </tr>
+              </table></marquee>
+			  </td>
+           
+          </tr>
+          
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666" id="tblQuangCaoLeft">
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/webTNT.gif" width="125"></td>
+          </tr>
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/banner_VVN.gif" width="125"></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+	
+  <td width="486" align="center" valign="top">
+  <table width="482" border="0" cellpadding="0" cellspacing="0" id="tblNoiDung" style="margin-top:2px; ">
+    <tr>
+	<td>
+      <table height="21" width="482" align="center" border="0" cellpadding="0" cellspacing="0" id="tblMenuTimKiem" background="images/titlebg2.gif">
+	  <tr>
+	  <td>
+	  <table width="400" border="0" align="center" cellpadding="0" cellspacing="0" id="tblMenuTimKiem_small">
+        <tr class="style17">
+          <td>0</td>
+          <td >1</td>
+          <td >2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td >8</td>
+          <td >9</td>
+          <td>A</td>
+          <td>B</td>
+          <td>C</td>
+          <td>D</td>
+          <td>E</td>
+          <td>F</td>
+          <td>G</td>
+          <td>H</td>
+          <td>I</td>
+          <td>J</td>
+          <td>K</td>
+          <td>L</td>
+          <td>M</td>
+          <td>N</td>
+          <td>O</td>
+          <td>P</td>
+          <td>Q</td>
+          <td>R</td>
+          <td>S</td>
+          <td>T</td>
+          <td>U</td>
+          <td>V</td>
+          <td>U</td>
+          <td>X</td>
+          <td>Y</td>
+          <td>Z</td>
+        </tr>
+      </table></td></tr></table>
+	  </td></tr>
+    <tr>
+      <td><table width="482" border="0" cellpadding="0" cellspacing="0" id="tblThongBao">
+        <tr>
+          <td height="2"></td>
+        </tr>
+        <tr>
+          <td height="22" align="left" background="images/titlebg2.gif" class="style15">Phim xem nhiều nhất</td>
+        </tr>
+        <tr>
+          <td height="2"></td>
+        </tr>
+        <tr>
+          <td height="11" background="images/rul.jpg"></td>
+        </tr>
+        <tr>
+          <td><table width="200" height="260" border="0" align="left" cellpadding="0" cellspacing="0" id="tblAnhThongBao">
+            <tr>
+              <td align="center" valign="middle"><img src="uploads/deadoraliveC1(1).jpg" width="175" height="251"></td>
+            </tr>
+          </table>
+		  <div align="left" >
+		    	
+
+            <H2 class="style19">DOA: Dead Or Alive (Sống Hay Chết)</h2>
+            <p> <span class="test">Bất chấp mọi lời can ngăn, công chúa Nhật Kasumi đã chấp nhận thân phận của “shiboya”</span> - một kẻ lưu vong để lên đường tìm anh trai, hoàng tử Hayate, đã mất tích từ ngày ra đi khi tham dự cuộc thi Dead Or Alive (DOA) hai năm về trước.
+    
+DOA là cuộc thi võ thuật lớn nhất toàn cầu với giải thưởng năm nay lê...see more </p>
+		  </div>
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td>
+<!--      Bắt đầu bảng phim mới-->
+      <table width="482" cellspacing="0" cellpadding="0" border="0" id="tblKetQuaTimKiem">
+        <tbody><tr>
+          <td height="2"></td>
+        </tr>
+        <tr>
+          <td height="22" background="images/bannerbg.png" align="left" class="style15">&nbsp;Phim mới</td>
+        </tr>
+        <tr>
+          <td height="11" background="images/rul.jpg"></td>
+        </tr>
+		 <tr>
+          <td height="2"></td>
+        </tr>
+        <tr>
+          <td> 
+<!--          Bắt đầu bảng grid-->
+		   <table width="482" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr valign="top" align="center">			
+              <td>
+				  <table width="100px" cellspacing="0" cellpadding="0" border="0">
+					<tbody><tr>
+					  <td valign="middle" align="center">
+					  <a href="index.asp?MaPhim=21">
+					  <img height="143px" width="100px" border="0" src="uploads/bourne3.jpg">
+					  </a>
+					  </td>
+					</tr>
+					<tr>
+					  <td height="50" valign="top" align="center">
+					  <a href="index.asp?MaPhim=21" onmouseout="this.id='gridCellLabel'" onmouseover="this.id='gridCellLabelMouseOver'" id="gridCellLabel">
+					  	The Bourne Ultimatum
+					  </a>
+					  </td>
+					</tr>
+				  </tbody></table>
+			  </td>
+			
+              <td>
+				  <table width="100" cellspacing="0" cellpadding="0" border="0" id="tbl3">
+					<tbody><tr>
+					  <td valign="middle" align="center">
+					  <a href="index.asp?MaPhim=20">
+					  <img height="143" width="100" border="0" src="uploads/09.jpg">
+					  </a>
+					  </td>
+					</tr>
+					<tr>
+					  <td height="50" valign="top" align="center">
+					  <a href="index.asp?MaPhim=20">
+					  <div onmouseout="this.style.textDecoration='none'" onmouseover="this.style.textDecoration='underline'" style="color: rgb(0, 0, 255);"> &lt;script&gt; ' " </div>
+					  </a>
+					  </td>
+					</tr>
+				  </tbody></table>
+			  </td>
+			
+              <td>
+				  <table width="100" cellspacing="0" cellpadding="0" border="0" id="tbl3">
+					<tbody><tr>
+					  <td valign="middle" align="center">
+					  <a href="index.asp?MaPhim=17">
+					  <img height="143" width="100" border="0" src="uploads/07.jpg">
+					  </a>
+					  </td>
+					</tr>
+					<tr>
+					  <td height="50" valign="top" align="center">
+					  <a href="index.asp?MaPhim=17">
+					  <div onmouseout="this.style.textDecoration='none'" onmouseover="this.style.textDecoration='underline'" style="color: rgb(0, 0, 255);"> def </div>
+					  </a>
+					  </td>
+					</tr>
+				  </tbody></table>
+			  </td>
+			
+              <td>
+				  <table width="100" cellspacing="0" cellpadding="0" border="0" id="tbl3">
+					<tbody><tr>
+					  <td valign="middle" align="center">
+					  <a href="index.asp?MaPhim=8">
+					  <img height="143" width="100" border="0" src="uploads/condemnedC.jpg">
+					  </a>
+					  </td>
+					</tr>
+					<tr>
+					  <td height="50" valign="top" align="center">
+					  <a href="index.asp?MaPhim=8">
+					  <div onmouseout="this.style.textDecoration='none'" onmouseover="this.style.textDecoration='underline'" style="color: rgb(0, 0, 255);"> The Condemned (Tử Tù) </div>
+					  </a>
+					  </td>
+					</tr>
+				  </tbody></table>
+			  </td>			  
+            </tr>            
+          </tbody></table>
+<!--          		Kết thúc bảng grid-->
+		  </td>
+        </tr> 
+    </tbody></table>
+<!--      	  Kết thúc bảng phim mới-->
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+    </td>
+    <td width="150" align="center" valign="top" bgcolor="#666666" >
+	<table width="150" border="0" cellpadding="0" cellspacing="0" id="tblMenuRight">
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" id="tblGioHang">
+          
+          <tr>
+            <td height="26" align="center" valign="middle" background="images/titlebg.gif"><span class="style1">Gi&#7887; hàng</span></td>
+          </tr>
+          
+          <tr>
+            <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="shoppingCartIcon"></td>
+                </tr>
+                <tr>
+                  <td height="38" align="center" valign="top" class="shoppingCartText">
+                  		Bạn đã chọn: <span class="shoppingCartNum">0</span> phim
+                   </td>
+                </tr>
+                <tr>
+                  <td height="48" align="center" valign="middle">
+                  	<input name="btnXemGioHang" type="button" id="btnXemGioHang" 
+                    	value="Xem Giỏ Hàng" class="shoppingCartButton">
+                   </td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFF00" id="tblSupport">
+          <tr>
+            <td height="19" align="center" valign="top"><span class="style13">H&#7895; tr&#7907; tr&#7921;c tuyến</span></td>
+          </tr>
+          <tr>
+            <td height="40" align="center"><img src="images/online.gif" width="125" height="25"></td>
+          </tr>
+          <tr>
+            <td height="40" align="center"><img src="images/online.gif" width="125" height="25"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" id="tblTimKiem">
+          
+          <tr>
+            <td height="26" align="center" valign="middle" background="images/titlebg.gif"><span class="style15">Tìm Kiếm</span></td>
+          </tr>
+         
+          <tr>
+            <td class="itemList_td_titleUnderline"></td>
+          </tr>
+          <tr>
+		  <form name="frmTimKiemPhim" action="" method="post">
+            <td class="itemList_td_monoBackground">
+			<table width="150" border="0" cellpadding="0" cellspacing="0" id="tblTimKiem_small">
+              <tr>
+
+                <td align="left"> &nbsp; Phim:<br>
+				   &nbsp; <input type="text" name="txtTenPhim" id="txtTenPhim" size=15>
+				</td>
+              </tr>
+              <tr>
+                <td height="55" align="left" valign="top">&nbsp; Diễn Viên:<br>
+				  &nbsp; <input type="text" name="txtTenDienVien" id="txtTenDienVien" size="12">
+				<input type="image" src="images/b_search.png" width="30" height="18">
+				</td>
+              </tr>
+            </table></td></form>
+          </tr>
+          
+        </table></td>
+      </tr>
+      <tr>
+        <td>
+        <table width="150" border="0" cellpadding="0" cellspacing="0" id="tblPhimSapRaMat">          
+          <tr>
+            <td height="26" align="center" valign="middle" background="images/titlebg.gif"><span class="style1">Phim sắp ra mắt</span></td>
+          </tr>
+         
+          <tr>
+            <td height="11" background="images/rul.jpg"></td>
+          </tr>
+          <tr>
+            <td valign="top">
+<!--            Bắt đầu bảng phim bán chạy-->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+    	<td height="5"></td>
+    </tr>
+	<tr>
+	  <td>
+		  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+			  <td valign="top" align="center">
+				<a href="index.asp?MaPhim=8">
+				<img height="143px" width="100px" border="0" src="uploads/condemnedC%2Ejpg">
+				</a>
+			  </td>
+			</tr>
+            <tr>
+                <td height="5"></td>
+            </tr>
+			<tr>
+			  <td valign="top" align="center">
+			    <a href="index.asp?MaPhim=8" id="movieLink" onMouseOut="this.id='movieLink'" onMouseOver="this.id='movieLinkMouseOver'">
+                	The Condemned (Tử Tù)
+			    </a>
+			  </td>
+			</tr>
+		  </table>
+	  </td>
+	</tr>	
+    <tr>
+    	<td height="5"></td>
+    </tr>    
+	<tr>
+	  <td valign="top" align="center">
+	  <a href="index.asp?action=PhimYeuThich" class="seeMore">
+	    See more &gt;&gt;
+	  </a>
+	  </td>
+	</tr>
+    <tr>
+    	<td height="5"></td>
+    </tr>  
+</table>
+<!--            Kết thúc bảng phim bán chạy-->
+            </td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><table width="150" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666" id="tblQuangCaoRight">
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/15070bf3.gif" width="140" height="62"></td>
+          </tr>
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/logosc2.gif" width="140" height="62"></td>
+          </tr>
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/130hgyk5.gif" width="140" height="62"></td>
+          </tr>
+          <tr>
+            <td height="68" align="center" valign="bottom"><img src="uploads/666611111111.gif" width="140" height="62"></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+	</td>
+  </tr>
+  <tr>
+    <td valign="middle" align="center" colspan="3" class="bottomMenu">
+        Bán DVD Phim các loại Bán DVD Phim các loại Bán DVD Phim các loại <br />
+        Bán DVD Phim các loại
+	</td>
+  </tr>
+</table>
+</body>
+</html>

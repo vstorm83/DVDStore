@@ -1,0 +1,177 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <table id="maintable" height="254" border="0">
+      <tr id="ARAeRuSGAqACQDof">
+        <td width="109" id="generallabel_122_1268667386000">
+          <b>Use Case ID</b>
+        </td>
+        <td width="491" id="generalvalue_122_1268667386000">
+          UC01
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDoh">
+        <td width="109" id="generallabel_120_1268667386000">
+          <b>Primary Actor</b>
+        </td>
+        <td width="491" id="generalvalue_120_1268667386000">
+          User
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDoj">
+        <td width="109" id="generallabel_118_1268667386000">
+          <b>Brief Description</b>
+        </td>
+        <td width="491" id="generalvalue_118_1268667386000">
+          User s&#7917; d&#7909;ng usecase n&#224;y &#273;&#7875; &#273;&#259;ng k&#253; th&#224;nh vi&#234;n
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDok">
+        <td width="109" id="generallabel_117_1268667386000">
+          <b>Preconditions</b>
+        </td>
+        <td width="491" id="generalvalue_117_1268667386000">
+          
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDol">
+        <td width="109" height="30" id="flowofeventlabelId_116_1268667386000">
+          <b>Flow of Events</b>
+        </td>
+        <td style="padding-left:0;" id="flowofeventvalueId_116_1268667386000" width="491" height="30" valign="top">
+          <table width="100%" height="32" border="0">
+            <tr>
+              <td width="20" id="flowofeventfirstcelllabel_116_1268667386000">
+                &#160;
+              </td>
+              <td width="235" id="flowofeventactioninputlabel_116_1268667386000" align="center">
+                <b>Actor Input</b>
+              </td>
+              <td width="235" id="flowofeventsystemresponselabel_116_1268667386000" align="center">
+                <b>System Response</b>
+              </td>
+            </tr>
+            <tr>
+              <td id="flowofeventNumIdPrefix_116_12686673860001" height="16">
+                1
+              </td>
+              <td height="16" class="actor">
+                Ng&#432;&#7901;i d&#249;ng ch&#7885;n ch&#7913;c n&#259;ng &#273;&#259;ng k&#253;
+              </td>
+              <td height="16" class="system">
+                
+              </td>
+            </tr>
+            <tr>
+              <td id="flowofeventNumIdPrefix_116_12686673860002">
+                <p>
+                  2
+                </p>
+              </td>
+              <td class="actor">
+                
+              </td>
+              <td class="system">
+                <p>
+                  H&#7879; th&#7889;ng hi&#7875;n th&#7883; form &#273;&#259;ng k&#253; g&#7891;m:
+                </p>
+                <p>
+                  t&#234;n &#273;&#259;ng nh&#7853;p, m&#7853;t kh&#7849;u, nh&#7853;p l&#7841;i m&#7853;t kh&#7849;u, h&#7885; &#273;&#7879;m, t&#234;n, 
+                  email, &#273;&#7883;a ch&#7881;, &#273;i&#7879;n tho&#7841;i, &#244; nh&#7853;p m&#227; b&#7843;o v&#7879; v&#224; &#7843;nh m&#227; b&#7843;o 
+                  v&#7879; c&#7847;n nh&#7853;p
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td id="flowofeventNumIdPrefix_116_12686673860003">
+                <p>
+                  3
+                </p>
+              </td>
+              <td class="actor">
+                Ng&#432;&#7901;i d&#249;ng nh&#7853;p th&#244;ng tin v&#224;o form, click n&#250;t &#273;&#259;ng k&#253; (A1)
+              </td>
+              <td class="system">
+                
+              </td>
+            </tr>
+            <tr>
+              <td id="flowofeventNumIdPrefix_116_12686673860004">
+                <p>
+                  4
+                </p>
+              </td>
+              <td class="actor">
+                
+              </td>
+              <td class="system">
+                <p>
+                  H&#7879; th&#7889;ng ki&#7875;m tra t&#237;nh h&#7907;p l&#7879; th&#244;ng tin tr&#234;n form g&#7891;m: t&#234;n 
+                  &#273;&#259;ng nh&#7853;p kh&#244;ng &#273;&#432;&#7907;c b&#7887; tr&#7889;ng, v&#224; kh&#244;ng v&#432;&#7907;t qu&#225; 20 k&#253; t&#7921;, 
+                  m&#7853;t kh&#7849;u t&#7915; 5 &#273;&#7871;n 20 k&#253; t&#7921;, m&#7853;t kh&#7849;u nh&#7853;p l&#7841;i c&#7847;n kh&#7899;p v&#7899;i 
+                  m&#7853;t kh&#7849;u &#273;&#227; nh&#7853;p, h&#7885; &#273;&#7879;m, t&#234;n t&#7915; 1 &#273;&#7871;n 20 k&#253; t&#7921;, email t&#7915; 1 
+                  &#273;&#7871;n 50 k&#253; t&#7921;, v&#224; c&#7847;n ph&#7843;i kh&#7899;p m&#7851;u email chu&#7849;n,  &#273;&#7883;a ch&#7881; t&#7915; 
+                  1 &#273;&#7871;n 100 k&#253; t&#7921;, &#273;i&#7879;n tho&#7841;i t&#7915; 1 &#273;&#7871;n 50 k&#253; t&#7921;, m&#227; b&#7843;o v&#7879; 
+                  &#273;&#250;ng (A2).
+                </p>
+                <p>
+                  H&#7879; th&#7889;ng l&#432;u th&#244;ng tin &#273;&#227; &#273;&#432;&#7907;c chu&#7849;n h&#243;a (nomalized) v&#224;o 
+                  CSDL (E1). Tr&#7843; v&#7873; th&#244;ng b&#225;o &#273;&#259;ng k&#253; th&#224;nh c&#244;ng
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDon">
+        <td width="109" height="16" id="generallabel_115_1268667386000">
+          <b>Post-conditions</b>
+        </td>
+        <td width="491" height="16" id="generalvalue_115_1268667386000">
+          
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDoo">
+        <td width="109" id="generallabel_114_1268667386000">
+          <b>Alternative flows and exceptions</b>
+        </td>
+        <td width="491" id="generalvalue_114_1268667386000">
+          <p>
+            A1: Ng&#432;&#7901;i d&#249;ng nh&#7853;p form, click n&#250;t nh&#7853;p l&#7841;i
+          </p>
+          <p>
+            1.1. Ng&#432;&#7901;i d&#249;ng Click n&#250;t nh&#7853;p l&#7841;i
+          </p>
+          <p>
+            1.2. H&#7879; th&#7889;ng x&#243;a tr&#7855;ng form, usecase b&#7855;t &#273;&#7847;u l&#7841;i t&#7915; b&#432;&#7899;c 3
+          </p>
+          <p>
+            A2: H&#7879; th&#7889;ng ki&#7875;m tra th&#244;ng tin form, ph&#225;t hi&#7879;n th&#244;ng tin kh&#244;ng 
+            h&#7907;p l&#7879;
+          </p>
+          <p>
+            2.1. H&#7879; th&#7889;ng tr&#7843; v&#7873; th&#244;ng b&#225;o l&#7895;i chi ti&#7871;t v&#7873; tr&#432;&#7901;ng th&#244;ng tin 
+            kh&#244;ng h&#7907;p l&#7879;
+          </p>
+          <p>
+            2.2. Ng&#432;&#7901;i d&#249;ng nh&#7853;p l&#7841;i c&#225;c tr&#432;&#7901;ng kh&#244;ng h&#7907;p l&#7879;, usecase b&#7855;t &#273;&#7847;u 
+            l&#7841;i t&#7915; b&#432;&#7899;c 3
+          </p>
+        </td>
+      </tr>
+      <tr id="ARAeRuSGAqACQDop">
+        <td width="109" id="generallabel_112_1268667386000">
+          <b>End-conditions</b>
+        </td>
+        <td width="491" id="generalvalue_112_1268667386000">
+          
+        </td>
+      </tr>
+    </table>
+    <p>
+      &#160;
+    </p>
+  </body>
+</html>

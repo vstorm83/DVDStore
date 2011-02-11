@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="movieService" class="net.homeip.dvdstore.service.MovieServiceImpl" >
+        <property name="movieDAO" ref="movieDAO" />
+        <property name="actorDAO" ref="actorDAO" />
+        <property name="directorDAO" ref="directorDAO" />
+        <property name="importCardDAO" ref="importCardDAO" />
+        <property name="movieCatgoryDAO" ref="movieCatgoryDAO" />
+        <property name="orderDAO" ref="orderDAO" />
+        <property name="configurationService" ref="configurationService"/>
+    </bean>
+    <bean id="reportService" class="net.homeip.dvdstore.service.ReportServiceImpl">
+        <property name="configurationService" ref="configurationService" />    
+    </bean>
+    <bean id="placeOrderService" class="net.homeip.dvdstore.service.PlaceOrderServiceImpl" >
+        <property name="shoppingCartDAO" ref="shoppingCartDAO" />
+        <property name="orderDAO" ref="orderDAO" />
+        <property name="movieDAO" ref="movieDAO" />
+        <property name="userDAO" ref="userDAO" />
+        <property name="jmsTemplate" ref="jmsTemplate" />
+        <property name="orderTopic" ref="orderTopic" />
+        <property name="configurationService" ref="configurationService" />
+    </bean>
+    <bean id="dsUserService" class="net.homeip.dvdstore.service.DSUserServiceImpl" >
+        <property name="userDAO" ref="userDAO" />
+        <property name="passwordEncoder" ref="md5PasswordEncoder" />
+        <property name="jmsTemplate" ref="jmsTemplate" />
+        <property name="userChangeTopic" ref="userChangeTopic" />
+        <property name="userRegisterTopic" ref="userRegisterTopic" />
+    </bean>
+    <bean id="configurationService" class="net.homeip.dvdstore.service.ConfigurationServiceImpl" >
+        <property name="configurationDAO" ref="configurationDAO" />
+    </bean>        
+    <bean id="advertismentService" class="net.homeip.dvdstore.service.AdvertismentServiceImpl" >
+        <property name="advertismentDAO" ref="advertismentDAO" />
+    </bean>
+    <bean id="chatService" class="net.homeip.dvdstore.service.ChatServiceImpl">
+        <property name="chatDAO" ref="chatDAO" />
+    </bean>            
+</beans>

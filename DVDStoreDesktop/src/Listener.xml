@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="loginListener" class="net.homeip.dvdstore.listener.LoginListenerImpl" >
+        <property name="adminLoginServiceDelegate" ref="adminLoginServiceDelegate" />
+    </bean>
+    <bean id="logoutListener" class="net.homeip.dvdstore.listener.LogoutListenerImpl" >
+        <property name="adminLogoutServiceDelegate" ref="adminLogoutServiceDelegate" />
+    </bean>
+    <bean id="changeCredentialsListener" class="net.homeip.dvdstore.listener.ChangeCredentialsListenerImpl" >
+        <property name="changeCredentialsServiceDelegate" ref="changeCredentialsServiceDelegate" />
+    </bean>
+    <bean id="movieCatgoryDialogListener" class="net.homeip.dvdstore.listener.MovieCatgoryDialogListener" >
+        <property name="movieCatgoryServiceDelegate" ref="movieCatgoryServiceDelegate" />
+        <property name="movieCatgoryChangeListenerRegistry" ref="movieCatgoryChangeListenerRegistry" />
+    </bean>
+    <bean id="directorDialogListener" class="net.homeip.dvdstore.listener.DirectorDialogListener" >
+        <property name="directorServiceDelegate" ref="directorServiceDelegate" />
+        <property name="directorChangeListenerRegistry" ref="directorChangeListenerRegistry" />
+    </bean>
+    <bean id="actorDialogListener" class="net.homeip.dvdstore.listener.ActorDialogListener" >
+        <property name="actorServiceDelegate" ref="actorServiceDelegate" />
+        <property name="actorChangeListenerRegistry" ref="actorChangeListenerRegistry" />
+    </bean>
+    <bean id="supplierDialogListener" class="net.homeip.dvdstore.listener.SupplierDialogListener" >
+        <property name="supplierServiceDelegate" ref="supplierServiceDelegate" />
+        <property name="supplierChangeListenerRegistry" ref="supplierChangeListenerRegistry" />
+    </bean>
+    <bean id="chatDialogListener" class="net.homeip.dvdstore.listener.ChatDialogListener" >
+        <property name="chatServiceDelegate" ref="chatServiceDelegate" />
+    </bean>
+    <bean id="goodsIFrameListener" class="net.homeip.dvdstore.listener.frame.GoodsIFrameListener">
+        <property name="actorChangeListenerRegistry" ref="actorChangeListenerRegistry" />
+        <property name="directorChangeListenerRegistry" ref="directorChangeListenerRegistry" />
+        <property name="movieCatgoryChangeListenerRegistry" ref="movieCatgoryChangeListenerRegistry" />
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry" />
+        <property name="goodsIFrameServiceDelegate" ref="goodsIFrameServiceDelegate" />
+    </bean>
+    <bean id="bussinessIFrameListener" class="net.homeip.dvdstore.listener.frame.BussinessIFrameListener">
+        <property name="movieCatgoryChangeListenerRegistry" ref="movieCatgoryChangeListenerRegistry" />
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry" />
+        <property name="bussinessIFrameServiceDelegate" ref="bussinessIFrameServiceDelegate" />
+        <property name="jMSUserChangeListenerRegistry" ref="jMSUserChangeListenerRegistry"/>
+    </bean>
+    <bean id="chooseMovieDialogListener" class="net.homeip.dvdstore.listener.ChooseMovieDialogListener" >
+        <property name="chooseMovieDialogServiceDelegate" ref="chooseMovieDialogServiceDelegate" />
+    </bean>
+    <bean id="statisticIFrameListener" class="net.homeip.dvdstore.listener.frame.StatisticIFrameListener">
+        <property name="movieCatgoryChangeListenerRegistry" ref="movieCatgoryChangeListenerRegistry" />
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry" />
+        <property name="supplierChangeListenerRegistry" ref="supplierChangeListenerRegistry"/>
+        <property name="jMSUserChangeListenerRegistry" ref="jMSUserChangeListenerRegistry" />
+    </bean>
+    <bean id="exportCardPanelListener" class="net.homeip.dvdstore.listener.panel.ExportCardPanelListener">
+        <property name="exportCardPanelServiceDelegate" ref="exportCardPanelServiceDelegate" />
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry"/>
+    </bean>
+    <bean id="importCardPanelListener" class="net.homeip.dvdstore.listener.panel.ImportCardPanelListener">
+        <property name="importCardPanelServiceDelegate" ref="importCardPanelServiceDelegate" />
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry" />
+    </bean>
+    <bean id="userIFrameListener" class="net.homeip.dvdstore.listener.frame.UserIFrameListener">
+        <property name="movieChangeListenerRegistry" ref="movieChangeListenerRegistry" />
+        <property name="jMSUserChangeListenerRegistry" ref="jMSUserChangeListenerRegistry"/>
+        <property name="userIFrameServiceDelegate" ref="userIFrameServiceDelegate" />
+    </bean>
+    <bean id="configurationDialogListener" class="net.homeip.dvdstore.listener.ConfigurationDialogListener">
+        <property name="configurationServiceDelegate" ref="configurationServiceDelegate" />
+    </bean>
+    <bean id="reportDialogListener" class="net.homeip.dvdstore.listener.ReportDialogListener" >
+        <property name="reportDialogServiceDelegate" ref="reportDialogServiceDelegate" />
+    </bean>
+    
+    <bean id="movieCatgoryChangeListenerRegistry" class="net.homeip.dvdstore.listener.ListenerRegistry" />
+    <bean id="directorChangeListenerRegistry" class="net.homeip.dvdstore.listener.ListenerRegistry" />
+    <bean id="actorChangeListenerRegistry" class="net.homeip.dvdstore.listener.ListenerRegistry" />
+    <bean id="supplierChangeListenerRegistry" class="net.homeip.dvdstore.listener.ListenerRegistry" />
+    <bean id="movieChangeListenerRegistry" class="net.homeip.dvdstore.listener.ListenerRegistry" />
+    <bean id="jMSUserChangeListenerRegistry" class="net.homeip.dvdstore.listener.JMSUserChangeListenerRegistry"/>
+</beans>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.Movie" table="Movie">
+    <id column="MovieId" name="movId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="MovieName" name="movName" type="string"/>
+    <property column="MoviePicName" name="movPicName" type="string"/>
+    <property column="MovieDescription" name="movDesc" type="string"/>
+    <many-to-one cascade="save-update" class="net.homeip.dvdstore.pojo.MovieCatgory" column="MovieCatgoryId" fetch="join" name="movCat"/>
+    <many-to-one cascade="save-update" class="net.homeip.dvdstore.pojo.Director" column="DirectorId" name="director"/>
+    <set cascade="save-update" name="actor" table="Movie_Actor">
+      <key column="MovieId"/>
+      <many-to-many class="net.homeip.dvdstore.pojo.Actor" column="ActorId"/>
+    </set>
+    <property column="MoviePrice" name="movPrice" type="double"/>
+    <property column="MovieSaleOff" name="movSaleOff" type="double"/>
+    <property column="DateCreated" name="dateCreated" type="timestamp"/>
+  </class>
+  <sql-query callable="true" name="findBestMovie">
+        <return class="net.homeip.dvdstore.pojo.Movie"/>
+        exec dbo.usp_findBestMovie :resultNum
+    </sql-query>
+  <sql-query callable="true" name="findNewMovie">
+        <return class="net.homeip.dvdstore.pojo.Movie"/>
+        exec dbo.usp_findNewMovie :resultNum
+    </sql-query>
+  <sql-query callable="true" name="findNewestMovie">
+        <return class="net.homeip.dvdstore.pojo.Movie"/>
+        exec dbo.usp_findNewestMovie
+    </sql-query>
+  <query name="findMovieByDirectorId">
+        from Movie mov where mov.director.directorId = :directorId
+    </query>
+  <query name="findMovieByNameAndMovieCatgory">
+        from Movie mov where mov.movName like :movName and mov.movCat.movCatId = :movCatId
+    </query>
+  <query name="findMovieIdByMovieName">
+        select mov.movId from Movie mov where mov.movName = :movName
+    </query>
+  <sql-query callable="true" name="getMovieQuantity">
+        <return-scalar column="quantity" type="integer"/>
+        exec usp_getMovieQuantity :movId
+    </sql-query>
+  <query name="findMovieIdAndNameByCatId">
+        select mov.movId, mov.movName from Movie mov where mov.movCat.movCatId = :movCatId
+    </query>
+  <!--<query name="getUserByUserName">
+        from User u where u.userName = :userName
+    </query>-->
+  <!--    <sql-query callable="true" name="getUser" >
+        <return-scalar column="UserId" type="long" />
+        {call usp_test}
+    </sql-query>
+    <sql-query name="getTotalRow" >
+        <return-scalar column="total" type="long" />
+        select @@rowcount as total
+    </sql-query>-->
+</hibernate-mapping>

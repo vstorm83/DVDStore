@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-update="true" name="net.homeip.dvdstore.pojo.Actor" table="Actor">
+    <id column="ActorId" name="actorId" type="long" unsaved-value="null">
+      <generator class="native"/>
+    </id>
+    <version column="Version" name="version" type="integer"/>
+    <property column="ActorName" name="actorName" type="string"/>
+  </class>
+  <query name="findActor">
+        from Actor act order by act.actorName
+    </query>
+  <query name="findActorIdByActorName">
+        select act.actorId from Actor act where act.actorName = :actorName
+    </query>
+</hibernate-mapping>

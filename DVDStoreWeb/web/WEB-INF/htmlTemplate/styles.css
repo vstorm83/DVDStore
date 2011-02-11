@@ -1,0 +1,208 @@
+.wwFormTable {}
+.label {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+}
+.errorLabel {
+    background-color:#F0F0F0;
+    border:1px solid #CCCCCC;
+    padding:4px 8px;
+    color:red;
+}
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {text-align:right; vertical-align:top; padding-right:0px;}
+/*Form Element*/
+.sidebarLabel {
+    color: white;
+    font-size: 14px;
+}
+.sidebarErrorLabel {
+    color:red;
+    font-size: 14px;
+}
+
+body,td,th {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+.seeMore {
+	color: #FFCC33;
+	font-weight:bold;
+	font-size:13px;
+	text-decoration: none;	
+}
+.itemList_td_small_title {
+	background-image: url(images/titlebg.gif);
+	text-align: center;
+	color: #FFCC33;
+	font-weight: bold;
+	font-size: 13px;
+}
+.itemList_td_title {
+	background-image: url(images/titlebg.gif);
+	text-align: center;
+	color: #FFCC33;
+	font-weight: bold;
+	font-size: 13px;
+}
+.itemList_td_gradienBackground {
+	background-image: url(images/bgmenu.png);
+}
+.itemList_td_titleUnderline {
+	background-image: url(images/rul.jpg);
+	height: 11px;
+}
+.itemList_td_monoBackground {
+	background-color: #666666;
+}
+.itemList_td_chatBackground {
+	background-color: #FFFF00;
+}
+/*Movie Cell*/
+#movieLink {
+	color: #FFFFFF; 	
+	text-decoration: none;	
+}
+#movieLinkMouseOver {
+	color: #FF9900; 
+	text-decoration: underline;
+}
+/*Movie Catgory*/
+#movieCatgoryLink {
+	color: #FFFFFF; 	
+	text-decoration: none;	
+}
+.movieCatgoryItemIcon {
+	background-image: url(images/here.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#movieCatgoryLinkMouseOver {
+	color: #FF9900; 
+	font-weight: bold; 
+	text-decoration: none;
+}
+/*Top Banner*/
+.topBanner {
+	background-image: url(images/banner.png);
+        width: 786px;
+        height: 109px;
+}
+/*Top Menu*/
+#topMenu {
+	color: #FFFFFF; 	
+	font-weight: bold; 
+	text-decoration: none;	
+}
+#topMenuMouseOver {
+	color: #FF9900; 
+	font-weight: bold; 
+	text-decoration: none;
+}
+.topMenuBackground {
+	background-image: url(images/bannerbg.png);
+}
+.topMenuSeperator {
+	background-image: url(images/btcenter.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*Bottom Menu*/
+.bottomMenu {
+	font-size: 14px;
+	color: #FFF;
+	height: 55px;
+	background-image: url(images/FooterBackground.gif);
+}
+/*Main Page*/
+.newestMovieName {
+    font-size: 19px;
+    color: rgb(255, 153, 0);
+}
+.newestMovieDescription {
+	text-align: justify;
+	text-indent: 20px;
+}
+.newestMovieContinue {
+	color: rgb(51, 0, 255);
+}
+.searchBar {
+	color:#FFCC00;
+	font-size:13px;
+	font-weight:bold;
+	background-image: url(images/titlebg2.png);
+}
+.searchBarLink{
+    color:#FFCC00;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration: none;
+}
+/*Movie detail page*/
+.movieDetailDescription {
+	text-align: justify; 
+	text-indent: 30px; 
+	font-size: 14px;
+}
+.movieDetailMoney {
+	color: rgb(255, 0, 0);
+}
+.smallMovieDetailTable {
+	background-color:#F0F0F0;
+	border:1px solid #CCCCCC;
+	padding:4px 8px;
+}
+.orderButton {
+	background-color:#333333;
+	color:white;
+	font-weight:800;
+	height:24px;
+	width:72px;
+}
+.movieDetailName {
+	color:#FF9900;
+	font-size:18px;
+	text-indent: 10px;
+}
+/*chat*/
+.chatTitle {
+    color:#FF0000;
+    font-size:14px;
+}
+.chatBackground {
+    background-color: #FFFF00;
+}
+/*Shopping Cart*/
+.shoppingCartIcon {
+	background-image: url(images/logo.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+	vertical-align: middle;
+	height: 129px;
+}
+.shoppingCartText {
+	color:#FFFFFF;
+	font-size:14px;
+}
+.shoppingCartNum {
+	color: rgb(255, 0, 0);
+}
+.shoppingCartButton {
+	font-size:12px; 
+	width:90px;
+}
+/*Phân trang*/
+.pagingCurrent {
+}
+.pagingRemain {
+    color: rgb(255, 0, 0);
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd">
+<validators>
+    <field name="model">
+        <field-validator type="visitor">
+            <!--nếu không ModelDriven thì không set-->
+            <param name="appendPrefix">false</param>
+            <message/>
+        </field-validator>
+    </field>
+</validators>

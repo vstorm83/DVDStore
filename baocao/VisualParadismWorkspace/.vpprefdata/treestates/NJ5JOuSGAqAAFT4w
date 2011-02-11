@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTreeState projectID="L1PxOuSGAqAAFShC" projectPath="C:\Documents and Settings\VU VIET PHUONG\Desktop\baocao\Bao cao\VisualParadismWorkspace\DVDStore.vpp">
+	<TreeState name="ModelRepository" viewX="0" viewY="0">
+		<ExpandedPath>ModelRepository</ExpandedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigator" viewX="0" viewY="215">
+		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>UseCaseDiagram</ExpandedPath>
+		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<ExpandedPath>InteractionDiagram</ExpandedPath>
+		<ExpandedPath>StateDiagram</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
+		<ExpandedPath>ERDiagram</ExpandedPath>
+		<SelectedPath>StateDiagram</SelectedPath>
+	</TreeState>
+	<TreeState name="ClassBrowser" viewX="0" viewY="46">
+		<ExpandedPath>ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,XHLI7uSGAqBKAR_p</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,XHLI7uSGAqBKAR_p,XHLI7uSGAqBKAR_y</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,XHLI7uSGAqBKAR_p,XHLI7uSGAqBKAR_y,XHLI7uSGAqBKAR_7</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,XHLI7uSGAqBKAR_p,XHLI7uSGAqBKAR_y,XHLI7uSGAqBKAR_7,XHLI7uSGAqBKASBh</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
+		<SelectedPath>ClassBrowser,ClassBrowser,XHLI7uSGAqBKAR_p,XHLI7uSGAqBKAR_y,XHLI7uSGAqBKAR_7,XHLI7uSGAqBKASBh,XHLI7uSGAqBKASBq</SelectedPath>
+	</TreeState>
+	<TreeState name="LogicalView" viewX="0" viewY="0">
+		<SelectedPath>LogicalView</SelectedPath>
+	</TreeState>
+</ProjectTreeState>
